@@ -3,12 +3,12 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copy csproj and restore
-COPY *.csproj ./
+COPY Nova4/*.csproj ./
 RUN dotnet restore
 
 # Copy the rest of the app and build
-COPY . ./
-RUN dotnet publish -c Release -o out
+COPY Nova4/ ./Nova4/
+RUN dotnet publish ./Nova4/Nova4.csproj -c Release -o out
 
 # Use the runtime image to run the app
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
