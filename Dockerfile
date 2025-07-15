@@ -18,4 +18,5 @@ COPY --from=build /app/out .
 ENV ASPNETCORE_URLS=http://+:80
 EXPOSE 80
 
-ENTRYPOINT ["dotnet", "Nova4.dll"]
+ENTRYPOINT ["dotnet"]
+CMD ["Nova4.dll"]
