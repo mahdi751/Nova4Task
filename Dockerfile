@@ -10,8 +10,8 @@ RUN dotnet restore ./Nova4/Nova4.csproj
 COPY Nova4/ ./Nova4/
 RUN dotnet publish ./Nova4/Nova4.csproj -c Release -o out
 
-# Use the .NET 8 runtime image to run the app
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# Use the .NET 6 runtime image instead of .NET 8 runtime
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out .
 
